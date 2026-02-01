@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6f2;
+            color: #d63384;
+            margin: 0;
+            padding: 50px;
+        }
+        .heart {
+            font-size: 100px;
+            margin-bottom: 20px;
+        }
+        .question {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #yes {
+            background-color: #ff69b4;
+            color: white;
+        }
+        #no {
+            background-color: #ccc;
+            color: #333;
+            position: relative;
+        }
+        .gif {
+            display: none;
+            margin-top: 20px;
+        }
+        .gif img {
+            max-width: 300px;
+            border-radius: 10px;
+        }
+        .note {
+            font-size: 14px;
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="heart">💖</div>
+    <div class="question">Will you be my Valentine? Yes or No</div>
+    <div class="buttons">
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+    </div>
+    <div class="gif" id="gif">
+        <img src="https://media.giphy.com/media/3o7TKz9bX9v9Kz9b9K/giphy.gif" alt="Funny GIF">
+        <p>Yay! You're my Valentine! 🎉</p>
+    </div>
+    <div class="note">Click no I dare you 😏</div>
+
+    <script>
+        const noButton = document.getElementById('no');
+        const yesButton = document.getElementById('yes');
+        const gif = document.getElementById('gif');
+
+        // Function to move the "No" button randomly
+        function moveNoButton() {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+            noButton.style.position = 'absolute';
+        }
+
+        // Move "No" on hover or click
+        noButton.addEventListener('mouseover', moveNoButton);
+        noButton.addEventListener('click', moveNoButton);
+
+        // Show GIF on "Yes" click
+        yesButton.addEventListener('click', () => {
+            document.querySelector('.buttons').style.display = 'none';
+            gif.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
